@@ -9,16 +9,16 @@ csvPath = r"C:\Users\YSK\Desktop\1030520813_patternrecognition_final_project\bre
 dataset = pd.read_csv(csvPath)
 sc = StandardScaler()
 
-dataset = dataset.drop(['id'],axis=1)
+dataset = dataset.drop(['id'], axis=1)
 le = LabelEncoder()
 dataset['diagnosis'] = le.fit_transform(dataset['diagnosis'])
 
 X = dataset.drop(columns=['diagnosis'])
 y = dataset['diagnosis']
 
-X=sc.fit_transform(X)
-le=LabelEncoder()
-y=le.fit_transform(y)
+X = sc.fit_transform(X)
+le = LabelEncoder()
+y = le.fit_transform(y)
 
 classifier = DecisionTreeClassifier()
 kfold=KFold(n_splits=5)
